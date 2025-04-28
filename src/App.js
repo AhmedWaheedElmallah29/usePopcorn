@@ -25,7 +25,6 @@ export default function App() {
   function handleDeleteWatched(id) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
   }
-
   const controller = new AbortController();
 
   useEffect(
@@ -212,7 +211,21 @@ function MovieDetails({
     },
     [selectedId]
   );
-
+  useEffect(
+    function () {
+      function callback(e) {
+        if (e.code === "Escape") {
+          handleCloseMovie();
+          console.log("close");
+        }
+      }
+      document.addEventListener("keydown", callback);
+      return function () {
+        document.removeEventListener("keydown", callback);
+      };
+    },
+    [handleCloseMovie]
+  );
   function handleAdd() {
     const newWatchedMovie = {
       imdbID: selectedId,
