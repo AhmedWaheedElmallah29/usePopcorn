@@ -216,7 +216,6 @@ function MovieDetails({
       function callback(e) {
         if (e.code === "Escape") {
           handleCloseMovie();
-          console.log("close");
         }
       }
       document.addEventListener("keydown", callback);
