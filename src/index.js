@@ -13,6 +13,7 @@ import App from "./App";
 //     </div>
 //   );
 // }
+test;
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
